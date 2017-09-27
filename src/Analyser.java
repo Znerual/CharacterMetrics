@@ -94,9 +94,9 @@ public class Analyser {
     public static int analyse(Map<String, Double> difmap) {
         double totalDifCount = 0;
         for (String key: difmap.keySet()) {
-            totalDifCount += Math.pow(difmap.get(key), 2);
+            totalDifCount += difmap.get(key) < 0 ? -difmap.get(key) : difmap.get(key);
         }
-        totalDifCount = Math.sqrt(totalDifCount);
+
         return (int) (100 - (totalDifCount * 50)); //100 is the best score, meaning the files are equivalent, 0 means they share nothing
     }
     public static int analyse(File file) throws IOException {
@@ -117,12 +117,12 @@ public class Analyser {
     }
     public static void main(String[] args) {
         try {
-            Map<String, Integer> table = read(new File("Text/text1.txt"));
-            Map<String, Integer> table2 = read(new File("Text/text2.txt"));
-            write(new File("Text/text1.dat"), table);
-            write(new File("Text/text2.dat"), table2);
+            Map<String, Integer> table = read(new File("Text/text6.txt"));
+            Map<String, Integer> table2 = read(new File("Text/text1.txt"));
+            //write(new File("Text/text6.dat"), table);
+            //write(new File("Text/text5.dat"), table2);
             Map<String, Double> difmap = difference(table, table2);
-            write(new File("Text/difText1Text2.dat"), difmap);
+            //write(new File("Text/difText4Text5.dat"), difmap);
             System.out.println(analyse(difmap));
         } catch (IOException ex) {
 
