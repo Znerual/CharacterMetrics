@@ -1,11 +1,18 @@
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Copyright by Laurenz Ruzicka 2017
+ * GNU GPLv3
+ * Please do not remove or change this disclaimer
+ * A little Program to analyse the structure of a given text
+ * @author Laurenz Ruzicka
+ * @version 1.0
+ */
 public class Analyser {
     public static final String TOTAL_COUNT = "totalCount";
+
     public static Map<String, Integer> read(File file) throws IOException {
         TreeMap<String, Integer> table = new TreeMap<String, Integer>();
         FileReader fr = new FileReader(file);
