@@ -11,7 +11,7 @@ import java.util.TreeMap;
  * @version 1.0
  */
 public class Analyser {
-    public static final String TOTAL_COUNT = "totalCount";
+    private static final String TOTAL_COUNT = "totalCount";
 
     public static Map<String, Integer> read(File file) throws IOException {
         TreeMap<String, Integer> table = new TreeMap<String, Integer>();
@@ -132,7 +132,7 @@ public class Analyser {
             //write(new File("Text/difText4Text5.dat"), difmap);
             System.out.println(analyse(difmap));
         } catch (IOException ex) {
-
+            System.out.println("An error occured, please contact the administrator");
         }
 
     }
